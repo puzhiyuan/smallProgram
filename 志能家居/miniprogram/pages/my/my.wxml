@@ -1,0 +1,25 @@
+<view class="root">
+  <view class="root-wrapper">
+    <view class="header-wrapper">
+      <image style="height: 35vh;z-index: -999;position: absolute;" src="../../static/images/header-background.jpg" mode="heightFix" />
+
+      <view class="userinfo">
+        <view class="avatar-wrapper">
+          <image src="{{avatarUrl}}" style="width: 100px;height: 100px;"></image>
+        </view>
+        <view class="nickname-wrapper">
+          <text>{{nickName}}</text>
+        </view>
+        <block wx:if="!{{canIUse}}">
+          <button open-type="chooseAvatar" bindchooseavatar="getUserInfo">点击登录</button>
+        </block>
+
+      </view>
+      <view class="body">
+        <view class="body-wrapper">
+
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

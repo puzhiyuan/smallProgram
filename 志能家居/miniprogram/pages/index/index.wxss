@@ -1,0 +1,85 @@
+/**index.wxss**/
+.root-wrapper{
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.header-wrapper{
+  background-color: rgba(0, 0, 0, 0.6);
+  background-blend-mode: multiply;
+  height: 35vh;
+  color: #fff;
+}
+
+.header-content-wrapper{
+  padding: 110px 15px 20px 15px;
+}
+
+.header-title{
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-text{
+  font-size: 32px;
+  font-weight: 400;
+  display: flex;
+  justify-content: space-between;
+}
+
+.weather-advice{
+  margin-top: 25px;
+  font-size: 14px;
+}
+.body-wrapper{
+  padding: 15px 15px 0 15px;
+}
+.data-wrapper{
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.data{
+  background-color: #2f2f2f;
+  width: 160px;
+  height: 82px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 15px;
+  transition: transform 0.01s ease-in-out;
+}
+.data:active{
+  transform: scale(0.95);
+}
+
+
+.data-left{
+  margin-top: 10px;
+  margin-left: 15px;
+}
+
+.data-logo>image{
+  width: 40px;
+  height: 40px;
+}
+
+.data-title{
+  font-size: 16px;
+  color: #7f7f7f;
+  /* justify-content: center; */
+}
+
+.data-value{
+  font-size: 25px;
+  margin-top: 15px;
+  margin-right: 12px;
+}
+
+
+.signature{
+  margin-top: 95px;
+  text-align: center;
+  font-size: 15px;
+  color: #fff;
+}

@@ -1,0 +1,119 @@
+
+<view class="root-wrapper">
+  <view class="root">
+    <!-- 头布局 -->
+    <view class="header-wrapper">
+      <image style="height: 35vh;z-index: -999;position: absolute;" src="../../static/images/header-background.jpg" mode="heightFix"/>
+      <view class="header-content-wrapper">
+        <view class="header-title">
+          <text>{{category}}</text>
+          <text>{{location}}</text>
+        </view>
+        <view class="header-text">
+          <text>{{tempNow}}</text>
+          <text>{{textDay}}</text>
+        </view>
+        <view class="weather-advice">
+          {{weatherIndex}}
+        </view>
+      </view>
+    </view>
+
+    <!-- 身体布局 -->
+    <view class="body-wrapper">
+      <view class="body">
+        <!-- data控件第一行 -->
+        <view class="data-wrapper">
+          <view class="data">
+            <view class="data-left">
+              <view class="data-logo">
+                <image src="../../static/images/wendu.png" mode="heightFix"/>
+              </view>
+              <view class="data-title">
+                温度
+              </view>
+            </view>
+            <view class="data-value">
+              <switch checked="{{LED}}" bindchange="setLED" color="#0288d1"/>
+            </view>
+          </view>
+          <view class="data">
+            <view class="data-left">
+              <view class="data-logo">
+                <image src="../../static/images/wendu.png"/>
+              </view>
+              <view class="data-title">
+                温度
+              </view>
+            </view>
+            <view class="data-value">
+              28°c
+            </view>
+          </view>
+        </view>
+        <!-- data控件第二行 -->
+        <view class="data-wrapper">
+          <view class="data">
+            <view class="data-left">
+              <view class="data-logo">
+                <image src="../../static/images/wendu.png" mode="heightFix"/>
+              </view>
+              <view class="data-title">
+                温度
+              </view>
+            </view>
+            <view class="data-value">
+              28°c
+            </view>
+          </view>
+          <view class="data">
+            <view class="data-left">
+              <view class="data-logo">
+                <image src="../../static/images/wendu.png"/>
+              </view>
+              <view class="data-title">
+                温度
+              </view>
+            </view>
+            <view class="data-value">
+              28°c
+            </view>
+          </view>
+        </view>
+        <!-- data控件第三行 -->
+        <view class="data-wrapper">
+          <view class="data">
+            <view class="data-left">
+              <view class="data-logo">
+                <image src="../../static/images/wendu.png" mode="heightFix"/>
+              </view>
+              <view class="data-title">
+                温度
+              </view>
+            </view>
+            <view class="data-value">
+              28°c
+            </view>
+          </view>
+          <view class="data">
+            <view class="data-left">
+              <view class="data-logo">
+                <image src="../../static/images/wendu.png"/>
+              </view>
+              <view class="data-title">
+                温度
+              </view>
+            </view>
+            <view class="data-value">
+              28°c
+            </view>
+          </view>
+        </view>
+
+        <view class="signature">
+          <text>QQ:185489643\nCopyright © 2001-2023 puzhiyuan 版权所有 </text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

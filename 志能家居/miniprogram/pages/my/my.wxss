@@ -1,0 +1,31 @@
+/* pages/my/my.wxss */
+.root-wrapper{
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.header-wrapper{
+  background-color: rgba(0, 0, 0, 0.6);
+  background-blend-mode: multiply;
+  height: 35vh;
+  color: #fff;
+}
+
+.userinfo{
+  padding: 120px 0 20px 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.avatar-wrapper{
+  height: 100px;
+  width: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.nickname-wrapper{
+  font-size: 27px;
+  
+}
