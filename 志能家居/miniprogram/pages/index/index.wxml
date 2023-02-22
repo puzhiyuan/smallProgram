@@ -1,9 +1,8 @@
-
 <view class="root-wrapper">
   <view class="root">
     <!-- 头布局 -->
     <view class="header-wrapper">
-      <image style="height: 35vh;z-index: -999;position: absolute;" src="../../static/images/header-background.jpg" mode="heightFix"/>
+      <image style="height: 35vh;z-index: -999;position: absolute;" src="../../static/images/header-background.jpg" mode="heightFix" />
       <view class="header-content-wrapper">
         <view class="header-title">
           <text>{{category}}</text>
@@ -27,27 +26,27 @@
           <view class="data">
             <view class="data-left">
               <view class="data-logo">
-                <image src="../../static/images/wendu.png" mode="heightFix"/>
+                <image src="../../static/images/LED.png" mode="heightFix" />
               </view>
               <view class="data-title">
-                温度
+                LED
               </view>
             </view>
             <view class="data-value">
-              <switch checked="{{LED}}" bindchange="setLED" color="#0288d1"/>
+              <switch checked="{{LED}}" bindchange="setLED" color="#0288d1" />
             </view>
           </view>
           <view class="data">
             <view class="data-left">
               <view class="data-logo">
-                <image src="../../static/images/wendu.png"/>
+                <image src="../../static/images/windows.png" />
               </view>
               <view class="data-title">
-                温度
+                窗户
               </view>
             </view>
             <view class="data-value">
-              28°c
+              <switch checked="{{window}}" bindchange="setWindows" color="#0288d1" />
             </view>
           </view>
         </view>
@@ -56,27 +55,27 @@
           <view class="data">
             <view class="data-left">
               <view class="data-logo">
-                <image src="../../static/images/wendu.png" mode="heightFix"/>
+                <image src="../../static/images/wendu.png" mode="heightFix" />
               </view>
               <view class="data-title">
                 温度
               </view>
             </view>
             <view class="data-value">
-              28°c
+              000
             </view>
           </view>
           <view class="data">
             <view class="data-left">
               <view class="data-logo">
-                <image src="../../static/images/wendu.png"/>
+                <image src="../../static/images/shidu.png" />
               </view>
               <view class="data-title">
-                温度
+                湿度
               </view>
             </view>
             <view class="data-value">
-              28°c
+              000
             </view>
           </view>
         </view>
@@ -85,23 +84,23 @@
           <view class="data">
             <view class="data-left">
               <view class="data-logo">
-                <image src="../../static/images/wendu.png" mode="heightFix"/>
+                <image src="../../static/images/guangzhaodu.png" mode="heightFix" />
               </view>
               <view class="data-title">
-                温度
+                光照度
               </view>
             </view>
             <view class="data-value">
-              28°c
+              000
             </view>
           </view>
           <view class="data">
             <view class="data-left">
               <view class="data-logo">
-                <image src="../../static/images/wendu.png"/>
+                <image src="../../static/images/wendu.png" />
               </view>
               <view class="data-title">
-                温度
+                XX
               </view>
             </view>
             <view class="data-value">
@@ -109,9 +108,16 @@
             </view>
           </view>
         </view>
+        <view class="process_wrap">
+          <view class="line" bindtap="moveTo"></view>
+          <!-- 这里的宽度和left值也可以改成百分比，效果是一样的 -->
+          <view class="active_line" style="width:{{2*progress}}rpx;" bindtap="moveTo"></view>
+          <view class="spot" style="left:{{2*progress}}rpx" bindtouchmove="moveTo" catchtouchstart="buttonStart"></view>
+          <view style="margin-top:50rpx;">{{precent}}%</view>
+        </view>
 
         <view class="signature">
-          <text>QQ:185489643\nCopyright © 2001-2023 puzhiyuan 版权所有 </text>
+          <text>Copyright © 2001-2023 puzhiyuan 版权所有 </text>
         </view>
       </view>
     </view>

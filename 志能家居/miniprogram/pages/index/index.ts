@@ -1,6 +1,9 @@
 // index.ts
 // 获取应用实例
 const app = getApp<IAppOption>()
+var startPoint;
+const min = 0; // 最小宽度 单位px
+const max = 200; // 最大宽度  单位px
 var mqtt = require('../../utils/mqtt.min.js')
 var client = null
 Page({
@@ -17,6 +20,10 @@ Page({
     weatherIndex: "...",//天气指数
     location: "...",//地区
     LED: "false",//LED状态
+    windows: "false",//窗户状态
+    buttonLeft: 0,
+    progress: 0, // 进度条的宽度，这里的单位是px，所以在wxml文件中要改为rpx
+    precent: 0 // 这个是百分比
   },
 
   // 事件处理函数
@@ -109,6 +116,26 @@ Page({
 
   },
   //获取设备状态
+  //设置窗户开关
+  setWindows(event){
+    var that = this
+    console.log(event.detail)
+    let oledStatus = event.detail.value
+    if(oledStatus){
+      client.publish(that.data.pubTopic, '{"target": "windows", "value": 180}', function(err){
+        if(!err){
+          console.log("发送成功--开")
+        }
+      })
+    }else{
+      client.publish(that.data.pubTopic, '{"target": "windows", "value": 0}',function(err){
+        if(!err){
+          console.log("发送成功--关")
+        }
+      })
+    }
+  },
+
   //设置LED状态
   setLED(event){
     var that = this
@@ -134,8 +161,6 @@ Page({
   connectMqtt() {
     var that = this
     const options = {
-
-
       clientId: 'mqttjs_' + Math.random().toString(16).substr(2, 8),
       client: true,
       connectTimeout: 4000,
@@ -143,12 +168,6 @@ Page({
       password: '666777',
       keepalive: 60
 
-
-      // connectTimeout: 4000,
-      // clientId: 'emqx_cloud9e0294',
-      // // port: 8084, 
-      // username: 'pzy',
-      // password: '666777',
     }
 
     client = mqtt.connect('wxs://cdd3910c.ala.cn-hangzhou.emqxsl.cn:8084/mqtt', options)
@@ -175,4 +194,35 @@ Page({
       console.log('收到订阅主题' + that.data.subTopic + ':' + message.toString())
     })
   },
+
+  buttonStart: function (e) {
+    startPoint = e.touches[0]
+  },
+  //拖动进度条
+  moveTo(e) {
+    var that = this
+    var endPoint = e.touches[e.touches.length - 1]
+    var translateX = endPoint.clientX - startPoint.clientX
+    startPoint = endPoint
+    var buttonLeft = this.data.buttonLeft + translateX
+    // 滑动位置大于进度条最大宽度的时候让它为最大宽度
+    if (buttonLeft > max) {
+      buttonLeft = max
+    }
+    // 滑动位置小于进度条最大宽度的时候让它为最小宽度
+    if (buttonLeft < min) {
+      buttonLeft = min
+    }
+    this.setData({
+      buttonLeft: buttonLeft,
+      progress: buttonLeft,
+      precent:parseInt((buttonLeft/max)*100)
+    })
+    console.log((buttonLeft/max)*100)
+    client.publish(that.data.pubTopic, '{"target": "LED", "value": '+ (buttonLeft/max)*100 +' }', function(err){
+      if(!err){
+        console.log("窗户状态改动上传成功...")
+      }
+    })
+  }
 })

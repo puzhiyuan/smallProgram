@@ -78,8 +78,43 @@
 
 
 .signature{
-  margin-top: 95px;
+  /* margin-top: px; */
   text-align: center;
   font-size: 15px;
   color: #fff;
+}
+
+/* 拖动进度条 */
+.process_wrap {
+  padding-top: 70px;
+  position: relative;
+  width: 400rpx;
+  margin-left: 60rpx;
+}
+.process_wrap .line {
+  width: 400rpx;
+  height: 2rpx;
+  background: #B5B8C2;
+}
+ 
+.process_wrap .active_line {
+  /* padding-top: 70px; */
+  position: absolute;
+  top: 132rpx;
+  left: 0;
+  max-width: 400rpx;
+  height: 8rpx;
+  background: linear-gradient(83deg, #84B3FF 0%, #116DF6 100%);
+}
+ 
+.process_wrap .spot {
+  position: absolute;
+  top: 110rpx;
+  left: 0;
+  width: 40rpx;
+  height: 40rpx;
+  background: #1A73FF;
+  box-shadow: 0px 2px 10px 0px rgba(196, 200, 204, 0.5);
+  border: 2px solid #FFFFFF;
+  border-radius: 100%;
 }
